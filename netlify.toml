@@ -1,12 +1,10 @@
 [build]
-  base = "client"
-  command = "npm run build"
-  publish = "dist"
+  # Install deps only in the client folder, then build there
+  command = "npm --prefix client ci && npm --prefix client run build"
+  publish = "client/dist"
 
+# SPA routing so refresh/deep links work
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[build.environment]
-NPM_FLAGS = "--include=dev"
