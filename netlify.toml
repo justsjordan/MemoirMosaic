@@ -1,9 +1,8 @@
 [build]
-  # Install deps in ./client and then build there
-  command = "npm --prefix client install --include=dev && npm --prefix client run build"
-  publish = "client/dist"
+  command = "npm install --include=dev && npm run build"
+  publish = "dist"
 
-# Make SPA routes work (prevents 404 on refresh)
+# Single-page app routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
