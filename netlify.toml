@@ -1,8 +1,9 @@
 [build]
-  base = "client"
-  command = "npm run build"
-  publish = "client/dist"
+  # run installs and build from the repo root (where package.json is)
+  command = "npm install --include=dev && npm run build"
+  publish = "dist"
 
+# SPA fallback so /any/route works
 [[redirects]]
   from = "/*"
   to = "/index.html"
